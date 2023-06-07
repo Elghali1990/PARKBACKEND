@@ -17,6 +17,6 @@ namespace chrep.core.park.Models
         public int DemandeId { get; set; }
         public Demande? Demande { get; set; }
         public MissionTypeEnum MissionType { get; set; }
-        public List<User> Users { get; } = new();
+        public virtual List<User>  Users { get; set; } = new();
     }
 }

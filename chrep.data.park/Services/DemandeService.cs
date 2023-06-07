@@ -4,6 +4,7 @@ using chrep.core.park.InputVm;
 using chrep.core.park.Interfaces;
 using chrep.core.park.Models;
 using chrep.data.park.SqlServer;
+using chrep.helpers.park.Constants;
 using Microsoft.EntityFrameworkCore;
 
 namespace chrep.data.park.Services
@@ -28,7 +29,7 @@ namespace chrep.data.park.Services
         public async Task<DemandeDetailDtos> getDemandeDetailById(int Id)
         {
             var _demande = new DemandeDetailDtos();
-            var demande = await FindAsync(d => d.Id.Equals(Id), new[] { "Users" });
+            var demande = await FindAsync(d => d.Id.Equals(Id), new[] {Tables.Users});
             if (demande is Demande)
             {
                 _demande.Id = demande.Id;

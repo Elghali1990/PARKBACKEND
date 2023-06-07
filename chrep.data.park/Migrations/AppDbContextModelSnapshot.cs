@@ -62,7 +62,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Demandes");
+                    b.ToTable("Demandes", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.Mission", b =>
@@ -106,7 +106,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("Missions");
+                    b.ToTable("Missions", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.Role", b =>
@@ -122,7 +122,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.User", b =>
@@ -159,7 +159,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.UserDemande", b =>
@@ -177,7 +177,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserDemande");
+                    b.ToTable("UserDemande", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.UserMission", b =>
@@ -195,7 +195,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserMission");
+                    b.ToTable("UserMission", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.UserRole", b =>
@@ -210,7 +210,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserRole");
+                    b.ToTable("UserRole", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.Vehicle", b =>
@@ -240,7 +240,7 @@ namespace chrep.data.park.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vehicles");
+                    b.ToTable("Vehicles", (string)null);
                 });
 
             modelBuilder.Entity("chrep.core.park.Models.Mission", b =>
