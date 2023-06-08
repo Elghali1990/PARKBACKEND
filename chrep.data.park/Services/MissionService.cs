@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace chrep.data.park.Services
 {
-    public class MissionService:DataHelper<Mission>, IMissionService
+    public class MissionService : DataHelper<Mission>, IMissionService
     {
         private readonly AppDbContext _appDbContext;
         private readonly UserService _userService;
@@ -24,22 +24,61 @@ namespace chrep.data.park.Services
             _roleService = new RoleService(appDb);
         }
 
-        public async Task<List<Mission>> GetAllMissionsByIdUser(int idUser)
+        public async Task<List<MissionDtos>> GetAllMissionsByIdUser(int idUser)
         {
-            var missions = await GetAllWithOptionAsync(m=>m.Demande.UserId.Equals(idUser) && m.DemandeId !=null);
+            List<MissionDtos> missionsDtos = new();
+            var missions = await GetAllWithOptionAsync(m => m.Demande.UserId.Equals(idUser) && m.DemandeId != null);
             var user = await _userService.FindAsync(u => u.Id.Equals(idUser));
-            var data = await GetAllWithOptionAsync(m => m.Users.Contains(user));
-            foreach (var mission in data)
+            foreach (var mission in missions)
             {
-                int count = missions.Count(m => m.Id == mission.Id);
-                if(count ==0)missions.Add(mission);
+                var demande = await _demandeService.FindAsync(d => d.Id.Equals(mission.DemandeId));
+                if (missionsDtos.Count(e => e.Id.Equals(mission.Id)) == 0)
+                {
+                    missionsDtos.Add(new MissionDtos { Id = mission.Id, DateDemande = demande.DateDemande, Objet = demande.Objet, Detail = demande.Detail });
+                }
             }
-            return missions;
+            var userMission = await GetAllWithOptionAsync(m => m.Users.Contains(user));
+            foreach (var mission in userMission)
+            {
+                var demande = await _demandeService.FindAsync(d => d.Id.Equals(mission.DemandeId));
+                if (missionsDtos.Count(e => e.Id.Equals(mission.Id)) == 0)
+                {
+                    missionsDtos.Add(new MissionDtos { Id = mission.Id, DateDemande = demande.DateDemande, Objet = demande.Objet, Detail = demande.Detail });
+                }
+            }
+            return missionsDtos;
+        }
+
+        public async Task<MissionDetailDtos> GetMissionDetail(int id)
+        {
+            var mission = await FindAsync(m=>m.Id == id, new[] {Tables.Users});
+            if(mission is Mission)
+            {
+                var demande = await _demandeService.FindAsync(d => d.Id == mission.DemandeId, new[] { Tables.Users });
+                List<UserMissionDtos> users = mission.Users.Select(u => new UserMissionDtos { Id = u.Id, FullName = u.FirstName + " " + u.LastName, IsAbsent = false }).ToList();
+                var vehicule =await _vehicleService.FindAsync(v=>v.Id==mission.VehicleId);
+                var missionDetail = new MissionDetailDtos
+                {
+                    Id= mission.Id,
+                    Objet=demande.Objet,
+                    Detail = demande.Detail,
+                    Instruction=mission.Instruction,
+                    Observation=mission.Observation,
+                    Chauffeur=mission.ChauffeurName,
+                    Vehicule=vehicule.Type_Matricule,
+                    DemandeId=mission.DemandeId,
+                    DateDepart=Convert.ToDateTime(mission.DateDepart),
+                    HeurDepart=mission.HourDepart.ToString(),
+                    UsersMission=users
+                };
+                return missionDetail;
+            }
+            return null;
         }
 
         public async Task<Mission> InsertMission(MissionVm missionVm)
         {
-            var demande = await _demandeService.FindAsync(d => d.Id == missionVm.DemandeId, new[] {Tables.Users} );
+            var demande = await _demandeService.FindAsync(d => d.Id == missionVm.DemandeId, new[] { Tables.Users });
             if (demande is Demande)
             {
                 demande.StatusEnum = StatusEnum.VALIDATE;
@@ -49,20 +88,20 @@ namespace chrep.data.park.Services
                 var users = await _userService.GetAllWithOptionAsync(u => u.Roles.Contains(role));
                 var chauffeurs = users.Select(c => new UserDots { Id = c.Id, FullName = c.FirstName + " " + c.LastName }).ToList();
                 var chauffeur = chauffeurs.FirstOrDefault(c => c.FullName == missionVm.ChauffeurName);
-                var vehicule = await _vehicleService.FindAsync(v=>v.Marque==missionVm.MarqueVehicule);
+                var vehicule = await _vehicleService.FindAsync(v => v.Marque == missionVm.MarqueVehicule);
                 var mission = new Mission()
                 {
-                    DateDepart=missionVm.DateDepart,
-                    HourDepart=TimeSpan.Parse(missionVm.HourDepart),
-                    Instruction=missionVm.Instruction,
-                    Observation=missionVm.Observation,
-                    ChauffeurId=chauffeur?.Id,
-                    ChauffeurName=missionVm.ChauffeurName,
-                    VehicleId=vehicule.Id,
-                    Vehicle=vehicule,
-                    DemandeId=missionVm.DemandeId,
-                    Demande=demande,
-                    MissionType=missionVm.MissionType,
+                    DateDepart = missionVm.DateDepart,
+                    HourDepart = TimeSpan.Parse(missionVm.HourDepart),
+                    Instruction = missionVm.Instruction,
+                    Observation = missionVm.Observation,
+                    ChauffeurId = chauffeur?.Id,
+                    ChauffeurName = missionVm.ChauffeurName,
+                    VehicleId = vehicule.Id,
+                    Vehicle = vehicule,
+                    DemandeId = missionVm.DemandeId,
+                    Demande = demande,
+                    MissionType = missionVm.MissionType,
                 };
                 await AddAsync(mission);
                 mission.Users.AddRange(demande.Users);

@@ -18,6 +18,7 @@ namespace chrep.api.park.Controllers
             _logger = logger;
 
         }
+
         [HttpGet,Route("getMissionsByidUser/{idUser}")]
         public async Task<IActionResult> GetMissionsByidUser(int idUser)
         {
@@ -34,21 +35,38 @@ namespace chrep.api.park.Controllers
             }
         }
 
-        [HttpGet, Route("getAllMission")]
-        public async Task<IActionResult> getAllMission()
+        [HttpGet, Route("getMissionDetail/{Id}")]
+        public async Task<IActionResult> GetMissionDetail(int Id)
         {
             try
             {
-                _logger.LogInformation("run end point insert mission", DateTime.UtcNow.ToLongTimeString());
-                var result = await _unitofworks.missionService.FindAsyncAll(x=>x.Id>0, new[] {Tables.Demandes} );
+                _logger.LogInformation("run end point get mission detail", DateTime.UtcNow.ToLongTimeString());
+                var result = await _unitofworks.missionService.GetMissionDetail(Id);
                 return Ok(result);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Error on add user pleas view log file.");
+                return BadRequest("Error on get mission detail pleas view log file.");
             }
         }
+
+        [HttpGet, Route("getAllMission")]
+        public async Task<IActionResult> getAllMission()
+        {
+            try
+            {
+                _logger.LogInformation("run end point get all missions", DateTime.UtcNow.ToLongTimeString());
+                var result = await _unitofworks.missionService.FindAsyncAll(x=>x.Id>0);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Error on get all missions pleas view log file.");
+            }
+        }
+
 
 
         [HttpPost, Route("insertMission")]
@@ -64,7 +82,7 @@ namespace chrep.api.park.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Error on add user pleas view log file.");
+                return BadRequest("Error on insert mission pleas view log file.");
             }
         }
     }

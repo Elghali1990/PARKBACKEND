@@ -16,6 +16,7 @@ namespace chrep.data.park.SqlServer
             modelBuilder.Entity<Demande>().HasMany(d => d.Users).WithMany(d => d.Demandes).UsingEntity<UserDemande>();
             modelBuilder.Entity<Mission>().HasMany(d => d.Users).WithMany(d => d.Missions).UsingEntity<UserMission>();
             modelBuilder.Entity<Vehicle>().Property(v => v.Type_Matricule).HasComputedColumnSql("[Matricule] + '-' + [TypeVehicule]");
+            
         }
 
         public DbSet<Demande> Demandes { get; set; }
