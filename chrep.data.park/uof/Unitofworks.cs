@@ -21,6 +21,7 @@ namespace chrep.data.park.uof
 
         public IVehicleService vehicleService { get; private set; }
 
+        public IAbsenceService absenceService { get; private set; }
 
         public Unitofworks(AppDbContext appDbContext)
         {
@@ -31,6 +32,7 @@ namespace chrep.data.park.uof
             userService = new UserService(appDbContext);
             missionService = new MissionService(appDbContext);
             vehicleService = new VehicleService(appDbContext);
+            absenceService = new AbsenceService(appDbContext);
         }
         public void Dispose()
         {

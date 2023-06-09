@@ -1,3 +1,4 @@
+using Azure;
 using chrep.core.park.uof;
 using chrep.data.park.SqlServer;
 using chrep.data.park.uof;
@@ -19,7 +20,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IUnitofworks, Unitofworks>();
 builder.Services.AddCors();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,7 +32,7 @@ app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseCors(cors => cors.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+app.UseCors(cors => cors.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin().WithOrigins("*"));
 app.MapControllers();
 
 app.Run();

@@ -14,6 +14,7 @@ namespace chrep.core.park.InputVm
         public string? MarqueVehicule { get; set; }
         public int DemandeId { get; set; }
         public MissionTypeEnum MissionType { get; set; }
+         public List<int> UserIds { get; set; }
         //public List<User> ? Users { get; set; } = new();
     }
 }

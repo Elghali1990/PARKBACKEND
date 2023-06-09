@@ -16,6 +16,7 @@ namespace chrep.data.park.Services
         private readonly DemandeService _demandeService;
         private readonly VehicleService _vehicleService;
         private readonly RoleService _roleService;
+        private readonly AbsenceService _absenceService;
         public MissionService(AppDbContext appDb) : base(appDb)
         {
             _userService = new UserService(appDb);
@@ -51,12 +52,17 @@ namespace chrep.data.park.Services
 
         public async Task<MissionDetailDtos> GetMissionDetail(int id)
         {
-            var mission = await FindAsync(m=>m.Id == id, new[] {Tables.Users});
+            var mission = await FindAsync(m=>m.Id == id, new[] {Tables.Users,Tables.Absences});
             if(mission is Mission)
             {
                 var demande = await _demandeService.FindAsync(d => d.Id == mission.DemandeId, new[] { Tables.Users });
-                List<UserMissionDtos> users = mission.Users.Select(u => new UserMissionDtos { Id = u.Id, FullName = u.FirstName + " " + u.LastName, IsAbsent = false }).ToList();
+                List<UserMissionDtos> users = new();
                 var vehicule =await _vehicleService.FindAsync(v=>v.Id==mission.VehicleId);
+                var absences = mission.Absences;
+                foreach(var absence in absences)
+                {
+                    users.Add(new UserMissionDtos { Id=absence.Id,FullName=absence.User.FirstName +" "+absence.User.LastName,IsAbsent=absence.IsAbsent });
+                }
                 var missionDetail = new MissionDetailDtos
                 {
                     Id= mission.Id,
@@ -67,6 +73,7 @@ namespace chrep.data.park.Services
                     Chauffeur=mission.ChauffeurName,
                     Vehicule=vehicule.Type_Matricule,
                     DemandeId=mission.DemandeId,
+                    MissionType=(int)mission.MissionType,
                     DateDepart=Convert.ToDateTime(mission.DateDepart),
                     HeurDepart=mission.HourDepart.ToString(),
                     UsersMission=users
@@ -78,7 +85,7 @@ namespace chrep.data.park.Services
 
         public async Task<Mission> InsertMission(MissionVm missionVm)
         {
-            var demande = await _demandeService.FindAsync(d => d.Id == missionVm.DemandeId, new[] { Tables.Users });
+            var demande = await _demandeService.FindAsync(d => d.Id == missionVm.DemandeId);
             if (demande is Demande)
             {
                 demande.StatusEnum = StatusEnum.VALIDATE;
@@ -104,8 +111,28 @@ namespace chrep.data.park.Services
                     MissionType = missionVm.MissionType,
                 };
                 await AddAsync(mission);
-                mission.Users.AddRange(demande.Users);
+                List<User> usersToInsert = new List<User>();
+                foreach (var userId in missionVm.UserIds)
+                {
+                    var userMission = await _userService.FindAsync(u => u.Id == userId);
+                    if(userMission is User)
+                    {
+                        usersToInsert.Add(userMission);
+                    }
+                }
+                mission.Users.AddRange(usersToInsert);
                 return mission;
+            }
+            return null;
+        }
+
+        public async Task<List<UserMission>> setUserMissionAbsent(List<int> ids,int idMission)
+        {
+           var mission = await FindAsync(m=>m.Id == idMission, new[] {Tables.Users});
+
+            foreach (var user in mission.Users)
+            {
+                
             }
             return null;
         }

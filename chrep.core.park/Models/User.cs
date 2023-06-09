@@ -16,6 +16,7 @@ namespace chrep.core.park.Models
         public virtual List<Role> Roles { get; } = new();
         public virtual List<Demande> Demandes { get; } = new();
         public virtual List<Mission> Missions { get; } = new();
+        public virtual List<Absence> Absences { get; } = new();
 
     }
 }

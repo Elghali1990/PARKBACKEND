@@ -16,6 +16,8 @@ namespace chrep.data.park.SqlServer
             modelBuilder.Entity<Demande>().HasMany(d => d.Users).WithMany(d => d.Demandes).UsingEntity<UserDemande>();
             modelBuilder.Entity<Mission>().HasMany(d => d.Users).WithMany(d => d.Missions).UsingEntity<UserMission>();
             modelBuilder.Entity<Vehicle>().Property(v => v.Type_Matricule).HasComputedColumnSql("[Matricule] + '-' + [TypeVehicule]");
+            modelBuilder.Entity<Mission>().HasMany(a => a.Absences).WithOne(m => m.Mission).HasForeignKey(a=>a.MissionId);
+            modelBuilder.Entity<User>().HasMany(a => a.Absences).WithOne(m => m.User).HasForeignKey(a=>a.UserId);
             
         }
 
@@ -24,6 +26,7 @@ namespace chrep.data.park.SqlServer
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Absence> Absences { get; set; }
 
 
     }

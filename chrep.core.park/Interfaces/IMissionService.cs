@@ -9,6 +9,6 @@ namespace chrep.core.park.Interfaces
          Task<Mission> InsertMission(MissionVm missionVm);
         Task<List<MissionDtos>> GetAllMissionsByIdUser(int idUser );
         Task<MissionDetailDtos> GetMissionDetail(int id );
-
+        Task<List<UserMission>> setUserMissionAbsent(List<int> ids,int idMission);
     }
 }
