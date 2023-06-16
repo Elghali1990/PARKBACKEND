@@ -10,6 +10,7 @@ namespace chrep.core.park.Interfaces
         Task<List<DemandeDtos>> getDemandeByUserId(int  userId);
         Task<DemandeDetailDtos> getDemandeDetailById(int Id);
         Task<Demande> updateDemande(DemandeVm demandeVm);
-        
+        Task<Demande> closeDemande(int Id);
+
     }
 }

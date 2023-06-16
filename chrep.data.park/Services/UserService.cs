@@ -1,7 +1,9 @@
 ﻿using chrep.core.park.Dtos;
+using chrep.core.park.Enums;
 using chrep.core.park.Interfaces;
 using chrep.core.park.Models;
 using chrep.data.park.SqlServer;
+using chrep.helpers.park.Constants;
 using Microsoft.EntityFrameworkCore;
 
 namespace chrep.data.park.Services
@@ -31,13 +33,29 @@ namespace chrep.data.park.Services
 
         public async Task<List<UserDots>> getUsersDtos()
         {
-           var users =await _appDbContext.Users.Select(u=>new UserDots() { Id=u.Id,FullName=u.FirstName +" "+ u.LastName}).ToListAsync();
-            return users;
+
+            var users = await FindAsyncAll(u => u.Id > 0, new[] { Tables.Roles });
+            var role = await _roleService.FindAsync(r => r.Id == (int)UserTypeEnum.CHAUFFEUR);
+            var result = new List<UserDots>();
+            foreach (var user in users)
+            {
+                foreach (var userrole in user.Roles)
+                {
+                    if (userrole.Id != role.Id) result.Add(new UserDots { Id=user.Id,FullName=user.FirstName+ " "+user.LastName});
+                }
+                if(user.Roles.Count == 0)
+                {
+                    result.Add(new UserDots { Id = user.Id, FullName = user.FirstName + " " + user.LastName });
+                }
+            }
+
+          //  var users =await _appDbContext.Users.Select(u=>new UserDots() { Id=u.Id,FullName=u.FirstName +" "+ u.LastName}).ToListAsync();
+            return result;
         }
 
         public async Task<User> Login(string userName, string password)
         {
-            var user = await FindAsync(c => c.UserName.Equals(userName) && c.Password.Equals(password));
+            var user = await FindAsync(c => c.UserName.Equals(userName) && c.Password.Equals(password), new[] {Tables.Roles} );
             return user;
         }
     }

@@ -20,6 +20,18 @@ namespace chrep.data.park.Services
             _appDbContext = appDb;
         }
 
+        public async Task<Demande> closeDemande(int Id)
+        {
+            var demande = await FindAsync(d=>d.Id == Id);
+            if (demande is Demande)
+            {
+                demande.StatusEnum = StatusEnum.CLOSED;
+                await Update(demande);
+                return demande;
+            }
+            return null;
+        }
+
         public async Task<List<DemandeDtos>> getDemandeByUserId(int userId)
         {
             var demandes = await _appDbContext.Demandes.Where(d => d.UserId.Equals(userId)).ToListAsync();

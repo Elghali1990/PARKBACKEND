@@ -1,10 +1,9 @@
-﻿using chrep.core.park.InputVm;
+﻿using chrep.core.park.Dtos;
+using chrep.core.park.InputVm;
 using chrep.core.park.Models;
 using chrep.core.park.uof;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
+using chrep.data.park.SqlServer;
 using Microsoft.AspNetCore.Mvc;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
 namespace chrep.api.park.Controllers
 {
@@ -20,7 +19,7 @@ namespace chrep.api.park.Controllers
             _logger = logger;
         }
 
-        [HttpPost("InsertDemande")]
+        [HttpPost,Route("InsertDemande")]
         public async Task<IActionResult> InsertDemande([FromBody] DemandeVm demandeVm)
         {
             try
@@ -37,8 +36,24 @@ namespace chrep.api.park.Controllers
             }
         }
 
+        [HttpGet,Route("getAllDemandes")]
+        public async Task<IActionResult> GetAllDemandes()
+        {
+            try
+            {
+                _logger.LogInformation("run end point get all demandes", DateTime.UtcNow.ToLongTimeString());
+                var demandes = await _unitofworks.demandeService.GetAllAsync();
+                var result = demandes.Select(d => new DemandeDtos { Id = d.Id, DateDemande = d.DateDemande, Objet = d.Objet }).ToList();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Error on get all demandes pleas view log file.");
+            }
+        }
 
-        [HttpGet("getDemandeByUserId")]
+        [HttpGet,Route("getDemandeByUserId")]
         public async Task<IActionResult> getDemandeByUserId(int userId)
         {
             try
@@ -54,7 +69,7 @@ namespace chrep.api.park.Controllers
             }
         }
 
-        [HttpGet("getDemandeByid")]
+        [HttpGet,Route("getDemandeByid")]
         public async Task<IActionResult> getDemandeByid(int id)
         {
             try
@@ -71,7 +86,7 @@ namespace chrep.api.park.Controllers
 
         }
 
-        [HttpDelete("DeleteDemande/{id}")]
+        [HttpDelete,Route("DeleteDemande/{id}")]
         public async Task<IActionResult> DeleteDemande(int id)
         {
             try
@@ -94,7 +109,7 @@ namespace chrep.api.park.Controllers
 
         }
 
-        [HttpPut("UpdateDemande")]
+        [HttpPut,Route("UpdateDemande")]
         public async Task<IActionResult> UpdateDemande([FromBody]DemandeVm demandeVm)
         {
             try
@@ -114,6 +129,23 @@ namespace chrep.api.park.Controllers
                 return BadRequest("Error on add user pleas view log file.");
             }
 
+        }
+
+        [HttpPut,Route("closeDemande/{id}")]
+        public async Task<IActionResult> CloseDemande(int Id)
+        {
+            try
+            {
+                _logger.LogInformation("run end point close demande", DateTime.UtcNow.ToLongTimeString());
+                var result = await _unitofworks.demandeService.closeDemande(Id);
+                _unitofworks.commite();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Error on close demande pleas view log file.");
+            }
         }
     }
 }

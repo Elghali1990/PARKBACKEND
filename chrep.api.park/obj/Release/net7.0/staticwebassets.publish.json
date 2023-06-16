@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "3OFdUQQJX20EHedn2QXshpFAjRMLXqUz4l6Qgg5ILjQ=",
+  "Source": "chrep.api.park",
+  "BasePath": "_content/chrep.api.park",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

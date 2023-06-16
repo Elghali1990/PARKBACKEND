@@ -1,0 +1,12 @@
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\bin\Release\net7.0\chrep.helpers.park.deps.json
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\bin\Release\net7.0\chrep.helpers.park.dll
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\bin\Release\net7.0\chrep.helpers.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.csproj.AssemblyReference.cache
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.AssemblyInfoInputs.cache
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.AssemblyInfo.cs
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.csproj.CoreCompileInputs.cache
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.dll
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\refint\chrep.helpers.park.dll
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\chrep.helpers.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.helpers.park\obj\Release\net7.0\ref\chrep.helpers.park.dll

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\m.elghali\Desktop\park</_PublishTargetUrl>
+    <History>True|2023-06-16T13:27:37.2005012Z;True|2023-06-16T13:12:51.2146625+01:00;True|2023-06-16T13:00:01.7637619+01:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DB">
+      <Value>Data Source=%28localdb%29\MSSQLLocalDB%3bInitial Catalog=Park_Db%3bIntegrated Security=True%3bTrust Server Certificate=False%3bApplication Intent=ReadWrite%3bMulti Subnet Failover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="chrep.data.park.SqlServer.AppDbContext">
+      <Value>Data Source=%28localdb%29\MSSQLLocalDB%3bInitial Catalog=Park_Db%3bIntegrated Security=True%3bTrust Server Certificate=False%3bApplication Intent=ReadWrite%3bMulti Subnet Failover=False</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

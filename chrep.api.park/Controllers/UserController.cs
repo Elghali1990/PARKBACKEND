@@ -6,6 +6,8 @@ using System;
 using chrep.core.park.Models;
 using System.Linq;
 using chrep.core.park.Dtos;
+using chrep.core.park.Enums;
+using chrep.helpers.park.Constants;
 
 namespace chrep.api.park.Controllers
 {
@@ -27,8 +29,17 @@ namespace chrep.api.park.Controllers
             try
             {
                 logger.LogInformation("run end point getAllUser", DateTime.UtcNow.ToLongTimeString());
-                var users = await _unitofworks.userService.GetAllAsync();
-                return Ok(users);
+                var users = await _unitofworks.userService.FindAsyncAll(u=>u.Id>0 , new[] {Tables.Roles});
+                var role =await _unitofworks.roleService.FindAsync(r => r.Id == (int)UserTypeEnum.CHAUFFEUR);
+                var result = new List<User>();
+                foreach (var user in users)
+                {
+                    foreach (var userrole in user.Roles)
+                    {
+                        if (userrole.Id != role.Id) result.Add(user);
+                    }
+                }
+                return Ok(result);
             }
             catch (Exception ex)
             {

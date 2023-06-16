@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "chrep.core.park/1.0.0": {
+        "dependencies": {
+          "chrep.helpers.park": "1.0.0"
+        },
+        "runtime": {
+          "chrep.core.park.dll": {}
+        }
+      },
+      "chrep.helpers.park/1.0.0": {
+        "runtime": {
+          "chrep.helpers.park.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "chrep.core.park/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "chrep.helpers.park/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

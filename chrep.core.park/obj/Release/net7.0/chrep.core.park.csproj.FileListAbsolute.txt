@@ -1,0 +1,15 @@
+E:\Repos\Park\chrep.api.park\chrep.core.park\bin\Release\net7.0\chrep.core.park.deps.json
+E:\Repos\Park\chrep.api.park\chrep.core.park\bin\Release\net7.0\chrep.core.park.dll
+E:\Repos\Park\chrep.api.park\chrep.core.park\bin\Release\net7.0\chrep.core.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.core.park\bin\Release\net7.0\chrep.helpers.park.dll
+E:\Repos\Park\chrep.api.park\chrep.core.park\bin\Release\net7.0\chrep.helpers.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.csproj.AssemblyReference.cache
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.AssemblyInfoInputs.cache
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.AssemblyInfo.cs
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.csproj.CoreCompileInputs.cache
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.csproj.CopyComplete
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.dll
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\refint\chrep.core.park.dll
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\chrep.core.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Release\net7.0\ref\chrep.core.park.dll

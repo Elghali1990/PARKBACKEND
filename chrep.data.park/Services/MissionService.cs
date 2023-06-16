@@ -5,7 +5,6 @@ using chrep.core.park.Interfaces;
 using chrep.core.park.Models;
 using chrep.data.park.SqlServer;
 using chrep.helpers.park.Constants;
-using Microsoft.EntityFrameworkCore;
 
 namespace chrep.data.park.Services
 {
@@ -23,6 +22,23 @@ namespace chrep.data.park.Services
             _demandeService = new DemandeService(appDb);
             _vehicleService = new VehicleService(appDb);
             _roleService = new RoleService(appDb);
+        }
+
+   
+
+        public async Task<List<MissionDtos>> getAllMissions()
+        {
+            List<MissionDtos> missionsDtos =new();
+            var missions =await GetAllAsync();
+            foreach (var mission in missions)
+            {
+                var demande = await _demandeService.FindAsync(d => d.Id == mission.DemandeId);
+                if(demande is Demande)
+                {
+                    missionsDtos.Add(new MissionDtos { Id = mission.Id, Objet = demande.Objet, Detail = demande.Detail, DateDemande = demande.DateDemande, });
+                }
+            }
+            return missionsDtos;
         }
 
         public async Task<List<MissionDtos>> GetAllMissionsByIdUser(int idUser)
@@ -59,10 +75,18 @@ namespace chrep.data.park.Services
                 List<UserMissionDtos> users = new();
                 var vehicule =await _vehicleService.FindAsync(v=>v.Id==mission.VehicleId);
                 var absences = mission.Absences;
-                foreach(var absence in absences)
+                if(absences.Count > 0)
                 {
-                    users.Add(new UserMissionDtos { Id=absence.Id,FullName=absence.User.FirstName +" "+absence.User.LastName,IsAbsent=absence.IsAbsent });
+                    foreach (var absence in absences)
+                    {
+                        users.Add(new UserMissionDtos { Id = absence.Id, FullName = absence.User.FirstName + " " + absence.User.LastName, IsAbsent = absence.IsAbsent });
+                    }
                 }
+                else
+                {
+                    users.AddRange(mission.Users.Select(u => new UserMissionDtos { Id = u.Id, FullName = u.FirstName + " " + u.LastName, IsAbsent = false }).ToList());
+                }
+             
                 var missionDetail = new MissionDetailDtos
                 {
                     Id= mission.Id,

@@ -57,7 +57,7 @@ namespace chrep.api.park.Controllers
             try
             {
                 _logger.LogInformation("run end point get all missions", DateTime.UtcNow.ToLongTimeString());
-                var result = await _unitofworks.missionService.FindAsyncAll(x=>x.Id>0);
+                var result = await _unitofworks.missionService.getAllMissions();
                 return Ok(result);
             }
             catch (Exception ex)
