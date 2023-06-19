@@ -1,0 +1,42 @@
+﻿@page "/Auth/Login"
+@model park.web.Pages.Auth.LoginModel
+
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<main class="form-signin w-100 m-auto" style="margin-top:200px !important">
+    <form method="post">
+        <img src="~/images/logo.png" width="200" height="60" class="mb-4" />
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-floating">
+            <input type="text" asp-for="@Model.Username" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+            <span asp-validation-for="@Model.Username"></span>
+        </div>
+        <div class="form-floating">
+            <input type="password" asp-for="@Model.Password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            <span asp-validation-for="@Model.Password"></span>
+
+        </div>
+
+        <div class="form-check text-start my-3">
+            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Remember me
+            </label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+
+    </form>
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

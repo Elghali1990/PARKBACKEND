@@ -43,3 +43,18 @@ E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.dl
 E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Debug\net7.0\refint\chrep.core.park.dll
 E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.pdb
 E:\Repos\Park\chrep.api.park\chrep.core.park\obj\Debug\net7.0\ref\chrep.core.park.dll
+F:\Asp.net core razor pages\Park\chrep.core.park\bin\Debug\net7.0\chrep.core.park.deps.json
+F:\Asp.net core razor pages\Park\chrep.core.park\bin\Debug\net7.0\chrep.core.park.dll
+F:\Asp.net core razor pages\Park\chrep.core.park\bin\Debug\net7.0\chrep.core.park.pdb
+F:\Asp.net core razor pages\Park\chrep.core.park\bin\Debug\net7.0\chrep.helpers.park.dll
+F:\Asp.net core razor pages\Park\chrep.core.park\bin\Debug\net7.0\chrep.helpers.park.pdb
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.csproj.AssemblyReference.cache
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.GeneratedMSBuildEditorConfig.editorconfig
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.AssemblyInfoInputs.cache
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.AssemblyInfo.cs
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.csproj.CoreCompileInputs.cache
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.csproj.CopyComplete
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.dll
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\refint\chrep.core.park.dll
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\chrep.core.park.pdb
+F:\Asp.net core razor pages\Park\chrep.core.park\obj\Debug\net7.0\ref\chrep.core.park.dll
