@@ -3498,23 +3498,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m.elghali\\.nuget\\packages\\": {},
+    "C:\\Users\\elgha\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Repos\\Park\\chrep.api.park\\chrep.data.park\\chrep.data.park.csproj",
+      "projectUniqueName": "F:\\Asp.net core razor pages\\Park\\chrep.data.park\\chrep.data.park.csproj",
       "projectName": "chrep.data.park",
-      "projectPath": "E:\\Repos\\Park\\chrep.api.park\\chrep.data.park\\chrep.data.park.csproj",
-      "packagesPath": "C:\\Users\\m.elghali\\.nuget\\packages\\",
-      "outputPath": "E:\\Repos\\Park\\chrep.api.park\\chrep.data.park\\obj\\",
+      "projectPath": "F:\\Asp.net core razor pages\\Park\\chrep.data.park\\chrep.data.park.csproj",
+      "packagesPath": "C:\\Users\\elgha\\.nuget\\packages\\",
+      "outputPath": "F:\\Asp.net core razor pages\\Park\\chrep.data.park\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\m.elghali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\elgha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3530,11 +3530,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\Repos\\Park\\chrep.api.park\\chrep.core.park\\chrep.core.park.csproj": {
-              "projectPath": "E:\\Repos\\Park\\chrep.api.park\\chrep.core.park\\chrep.core.park.csproj"
+            "F:\\Asp.net core razor pages\\Park\\chrep.core.park\\chrep.core.park.csproj": {
+              "projectPath": "F:\\Asp.net core razor pages\\Park\\chrep.core.park\\chrep.core.park.csproj"
             },
-            "E:\\Repos\\Park\\chrep.api.park\\chrep.helpers.park\\chrep.helpers.park.csproj": {
-              "projectPath": "E:\\Repos\\Park\\chrep.api.park\\chrep.helpers.park\\chrep.helpers.park.csproj"
+            "F:\\Asp.net core razor pages\\Park\\chrep.helpers.park\\chrep.helpers.park.csproj": {
+              "projectPath": "F:\\Asp.net core razor pages\\Park\\chrep.helpers.park\\chrep.helpers.park.csproj"
             }
           }
         }
@@ -3586,7 +3586,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

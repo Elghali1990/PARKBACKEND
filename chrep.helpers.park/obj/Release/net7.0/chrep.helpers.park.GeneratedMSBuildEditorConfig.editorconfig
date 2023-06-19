@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = chrep.helpers.park
-build_property.ProjectDir = E:\Repos\Park\chrep.api.park\chrep.helpers.park\
+build_property.ProjectDir = F:\Asp.net core razor pages\Park\chrep.helpers.park\
