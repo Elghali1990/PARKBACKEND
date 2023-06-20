@@ -1,4 +1,5 @@
 ﻿using chrep.core.park.Dtos;
+using chrep.core.park.InputVm;
 using chrep.core.park.Models;
 
 namespace chrep.core.park.Interfaces
@@ -9,7 +10,9 @@ namespace chrep.core.park.Interfaces
         public Task<List<User>> Filter(string FirstName,string LastName);
         public Task<User> Login(string userName, string password);
 
-        Task<List<UserDots>> getUsersDtos();
+        public Task<List<UserTocken>> getUserTockens(UserIds userIds);
+        public Task<List<UserDots>> getUsersDtos();
+        public Task<User> SetUserTocken(UserTocken userTocken);
 
     }
 }

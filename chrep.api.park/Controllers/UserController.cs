@@ -8,6 +8,7 @@ using System.Linq;
 using chrep.core.park.Dtos;
 using chrep.core.park.Enums;
 using chrep.helpers.park.Constants;
+using chrep.core.park.InputVm;
 
 namespace chrep.api.park.Controllers
 {
@@ -80,6 +81,24 @@ namespace chrep.api.park.Controllers
             }
         }
 
+
+        [HttpPost, Route("getUserTockens")]
+        public async Task<IActionResult> getUserTockens([FromBody] UserIds userIds)
+        {
+            try
+            {
+                logger.LogInformation("run end point get user tockens", DateTime.UtcNow.ToLongTimeString());
+                var result = await _unitofworks.userService.getUserTockens(userIds);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return BadRequest("Error on get user tockens pleas view log file");
+            }
+        }
+
+
         [HttpPost, Route("addUser")]
         public async Task<IActionResult> addUser([FromBody] User user)
         {
@@ -148,6 +167,23 @@ namespace chrep.api.park.Controllers
             }
         }
 
+        [HttpPut, Route("setUserTocken")]
+        public async Task<IActionResult> setUserTocken([FromBody] UserTocken userTocken)
+        {
+            try
+            {
+                logger.LogInformation("run end point update set user", DateTime.UtcNow.ToLongTimeString());
+                var result = await _unitofworks.userService.SetUserTocken(userTocken);
+                _unitofworks.commite();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return BadRequest("Error on set user tocken pleas view log file.");
+            }
+        }
+
         [HttpGet, Route("Filter/{FistName}/{LastName}")]
         public async Task<IActionResult> Filter(string FistName, string LastName)
         {
@@ -204,3 +240,6 @@ namespace chrep.api.park.Controllers
 
     }
 }
+
+
+

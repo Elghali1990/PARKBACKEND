@@ -1,5 +1,6 @@
 ﻿using chrep.core.park.Dtos;
 using chrep.core.park.Enums;
+using chrep.core.park.InputVm;
 using chrep.core.park.Interfaces;
 using chrep.core.park.Models;
 using chrep.data.park.SqlServer;
@@ -53,10 +54,33 @@ namespace chrep.data.park.Services
             return result;
         }
 
+        public async Task<List<UserTocken>> getUserTockens(UserIds userIds)
+        {
+            var userTockens = new List<UserTocken>();
+            foreach (var id in userIds.Ids)
+            {
+                var user = await FindAsync(u => u.Id == id);
+                userTockens.Add(new UserTocken { Id=user.Id,Tocken=user.Tocken});
+            }
+            return userTockens;
+        }
+
         public async Task<User> Login(string userName, string password)
         {
             var user = await FindAsync(c => c.UserName.Equals(userName) && c.Password.Equals(password), new[] {Tables.Roles} );
             return user;
+        }
+
+        public async Task<User> SetUserTocken(UserTocken userTocken)
+        {
+            var user = await FindAsync(u => u.Id.Equals(userTocken.Id));
+            if(user is User)
+            {
+                user.Tocken = userTocken.Tocken;
+                await Update(user);
+                return user;
+            }
+            return null;
         }
     }
 }

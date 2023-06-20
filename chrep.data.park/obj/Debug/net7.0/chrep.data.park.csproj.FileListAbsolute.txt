@@ -36,25 +36,6 @@ C:\Users\elgha\OneDrive\Bureau\chrep.api.park\chrep.data.park\obj\Debug\net7.0\r
 C:\Users\elgha\OneDrive\Bureau\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.pdb
 C:\Users\elgha\OneDrive\Bureau\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.genruntimeconfig.cache
 C:\Users\elgha\OneDrive\Bureau\chrep.api.park\chrep.data.park\obj\Debug\net7.0\ref\chrep.data.park.dll
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.deps.json
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.runtimeconfig.json
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.dll
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.pdb
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.core.park.dll
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.helpers.park.dll
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.core.park.pdb
-E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.helpers.park.pdb
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.csproj.AssemblyReference.cache
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.GeneratedMSBuildEditorConfig.editorconfig
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.AssemblyInfoInputs.cache
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.AssemblyInfo.cs
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.csproj.CoreCompileInputs.cache
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.csproj.CopyComplete
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.dll
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\refint\chrep.data.park.dll
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.pdb
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.genruntimeconfig.cache
-E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\ref\chrep.data.park.dll
 F:\Asp.net core razor pages\Park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.deps.json
 F:\Asp.net core razor pages\Park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.runtimeconfig.json
 F:\Asp.net core razor pages\Park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.dll
@@ -74,3 +55,22 @@ F:\Asp.net core razor pages\Park\chrep.data.park\obj\Debug\net7.0\refint\chrep.d
 F:\Asp.net core razor pages\Park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.pdb
 F:\Asp.net core razor pages\Park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.genruntimeconfig.cache
 F:\Asp.net core razor pages\Park\chrep.data.park\obj\Debug\net7.0\ref\chrep.data.park.dll
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.deps.json
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.runtimeconfig.json
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.dll
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.data.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.core.park.dll
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.helpers.park.dll
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.core.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.data.park\bin\Debug\net7.0\chrep.helpers.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.csproj.AssemblyReference.cache
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.AssemblyInfoInputs.cache
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.AssemblyInfo.cs
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.csproj.CoreCompileInputs.cache
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.csproj.CopyComplete
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.dll
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\refint\chrep.data.park.dll
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.pdb
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\chrep.data.park.genruntimeconfig.cache
+E:\Repos\Park\chrep.api.park\chrep.data.park\obj\Debug\net7.0\ref\chrep.data.park.dll

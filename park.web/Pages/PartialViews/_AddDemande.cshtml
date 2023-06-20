@@ -1,15 +1,49 @@
 ﻿<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-    Toggle static offcanvas
+    <i class="bi bi-plus-circle mr-5"></i>   Ajouter un demande
 </button>
 
-<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+<div class="offcanvas offcanvas-end " style="width:30%" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="staticBackdropLabel">Demande information</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body offcanvas-xxl">
         <div>
-            I will not close if you click outside of me.
+           <form>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Objet</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Detail</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Heur</label>
+                    <input type="time" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Fonctionnaires</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Observation</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary btn-sm btn-add-demande"><i class="bi bi-check-lg icon-save"></i>Sauvgarder</button>
+                    <button type="button" class="btn btn-danger btn-sm btn-add-demande"><i class="bi bi-x icon-save"></i>Annuler</button>
+                </div>
+           </form>
         </div>
     </div>
 </div>
